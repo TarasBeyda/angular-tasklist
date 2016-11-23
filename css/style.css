@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: gray;
+	color: black;
+}
+.list {
+	border: 2px solid white;
+	padding-bottom: 32px;
+}
+.list .row {
+	padding-top: 5px;
+}
+.list .task:hover {
+	background: white;
+}
+.weight {
+	font-weight: 900;
+}
+.border-b {
+	border-bottom: 1px solid white;
+	height: 27px;
+}
+.inProgress {
+	color: red;
+}
+.done {
+	display: none;
+	color: green;
+}
+.pop__up {
+	display: none;
+	width: 750px;
+	margin: 15px auto 0;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body ng-controller='TaskCtrl as Task'>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2"></div>
+			<div class="col-lg-8">
+				<h1>Plan your day!</h1>
+				<h3>User: {{Task.data.user}}. Count of Task - {{Task.data.task.length}}</h3>
+				<hr>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Add new task..." ng-model="Task.newTask">
+					<input type="button" class="btn btn-success btn-block" value="Add" ng-click="Task.addTask()">
+				</div>
+			</div>
+			<div class="col-lg-2"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 list">
+			<div class="row">
+				<div class="col-lg-2 weight">
+					<span>Deleting</span>
+				</div>
+				<div class="col-lg-3 weight">
+					<span>Task</span>
+				</div>
+				<div class="col-lg-2 weight">
+					<span>Check</span>
+				</div>
+				<div class="col-lg-3 weight">
+					<span>Done / In Progress</span>
+				</div>
+				<div class="col-lg-2 weight">
+					<span>Edit</span>
+				</div>
+				<div class="border-b"></div>
+			</div>
+			<div class="inf"></div>
+			<div class="row task" ng-repeat="key in Task.data.task">
+				<div class="col-lg-2">
+					<input type="button" class="btn btn-danger btn-xs" value="Delete" ng-click="Task.removeTask($event)">
+				</div>
+				<div class="col-lg-3">
+					<span>{{key.nameTask}}</span>
+				</div>
+				<div class="col-lg-2">
+					<input type="checkbox" ng-click="Task.clickCheckTask($event)">
+				</div>
+				<div class="col-lg-3">
+					<span class="inProgress">In Progress</span>
+					<span class="done">Done</span>
+				</div>
+				<div class="col-lg-2">
+					<input type="button" class="btn btn-info btn-xs" value="Edit" ng-click="Task.clickEditTask($event)">
+				</div>
+				<div class="border-b"></div>
+			</div>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+	<div class="pop__up form-group">
+		<input type="text" class="form-control" placeholder="Change task..." ng-model="Task.newEdit">
+		<input type="button" class="btn btn-success btn-block" value="Change" ng-click="Task.editTask()">
+	</div>
+</body>
+</html>
